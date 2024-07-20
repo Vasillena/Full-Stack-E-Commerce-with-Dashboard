@@ -1,20 +1,21 @@
 "use client";
-import { Product } from "@/types";
-import { ShoppingCart } from "lucide-react";
-// import useCart from "@/hooks/useCart";
+
 import Button from "./ui/button";
 import Currency from "./ui/currency";
+import { Product } from "@/types";
+import { ShoppingCart } from "lucide-react";
+import useCart from "@/hooks/use-cart";
 
 interface InfoProps {
   data: Product;
 }
 
 const Info: React.FC<InfoProps> = ({ data }) => {
-  //   const cart = useCart();
+    const cart = useCart();
 
-  //   const onAddToCart = () => {
-  //     cart.addItem(data);
-  //   };
+    const onAddToCart = () => {
+      cart.addItem(data);
+    };
 
   return (
     <div>
@@ -40,7 +41,7 @@ const Info: React.FC<InfoProps> = ({ data }) => {
       </div>
       <div className="mt-10 flex items-center gap-x-3">
         <Button
-          // onClick={onAddToCart}
+          onClick={onAddToCart}
           className="flex items-center gap-x-2"
         >
           Add to Cart
